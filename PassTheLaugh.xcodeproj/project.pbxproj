@@ -12,6 +12,7 @@
 		7DF1E84E1D4E801B00DD513E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF1E84C1D4E801B00DD513E /* Main.storyboard */; };
 		7DF1E8501D4E801B00DD513E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DF1E84F1D4E801B00DD513E /* Assets.xcassets */; };
 		7DF1E85B1D4E801B00DD513E /* PassTheLaughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1E85A1D4E801B00DD513E /* PassTheLaughTests.swift */; };
+		7DF1E8661D4E812C00DD513E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DF1E8651D4E812C00DD513E /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		7DF1E8561D4E801B00DD513E /* PassTheLaughTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PassTheLaughTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DF1E85A1D4E801B00DD513E /* PassTheLaughTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTheLaughTests.swift; sourceTree = "<group>"; };
 		7DF1E85C1D4E801B00DD513E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DF1E8651D4E812C00DD513E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				7DF1E84C1D4E801B00DD513E /* Main.storyboard */,
 				7DF1E84F1D4E801B00DD513E /* Assets.xcassets */,
 				7DF1E8511D4E801B00DD513E /* Info.plist */,
+				7DF1E8651D4E812C00DD513E /* GoogleService-Info.plist */,
 			);
 			path = PassTheLaugh;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			files = (
 				7DF1E8501D4E801B00DD513E /* Assets.xcassets in Resources */,
 				7DF1E84E1D4E801B00DD513E /* Main.storyboard in Resources */,
+				7DF1E8661D4E812C00DD513E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +382,7 @@
 				7DF1E8611D4E801B00DD513E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7DF1E8621D4E801B00DD513E /* Build configuration list for PBXNativeTarget "PassTheLaughTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +391,7 @@
 				7DF1E8641D4E801B00DD513E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
