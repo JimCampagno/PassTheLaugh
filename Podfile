@@ -6,6 +6,7 @@ target 'PassTheLaugh' do
   use_frameworks!
 
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 
   # Pods for PassTheLaugh
 

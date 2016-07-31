@@ -16,6 +16,7 @@
 		7D4BC8CA1D4E9E030008DD9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D4BC8C81D4E9E030008DD9B /* LaunchScreen.storyboard */; };
 		7D4BC8D51D4E9E030008DD9B /* PassTheLaughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4BC8D41D4E9E030008DD9B /* PassTheLaughTests.swift */; };
 		7D4BC8E01D4E9E260008DD9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D4BC8DF1D4E9E260008DD9B /* GoogleService-Info.plist */; };
+		7D4BC8E21D4E9F100008DD9B /* FirebaseAPIclient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4BC8E11D4E9F100008DD9B /* FirebaseAPIclient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		7D4BC8D41D4E9E030008DD9B /* PassTheLaughTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTheLaughTests.swift; sourceTree = "<group>"; };
 		7D4BC8D61D4E9E030008DD9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D4BC8DF1D4E9E260008DD9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7D4BC8E11D4E9F100008DD9B /* FirebaseAPIclient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPIclient.swift; sourceTree = "<group>"; };
 		B5BBFF9061CA6BCF1808EDD9 /* Pods_PassTheLaughTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PassTheLaughTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B8ADC88CD74B119C5C71F1 /* Pods-PassTheLaugh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassTheLaugh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PassTheLaugh/Pods-PassTheLaugh.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +100,7 @@
 				7D4BC8C81D4E9E030008DD9B /* LaunchScreen.storyboard */,
 				7D4BC8CB1D4E9E030008DD9B /* Info.plist */,
 				7D4BC8DF1D4E9E260008DD9B /* GoogleService-Info.plist */,
+				7D4BC8E11D4E9F100008DD9B /* FirebaseAPIclient.swift */,
 			);
 			path = PassTheLaugh;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D4BC8C21D4E9E030008DD9B /* ViewController.swift in Sources */,
+				7D4BC8E21D4E9F100008DD9B /* FirebaseAPIclient.swift in Sources */,
 				7D4BC8C01D4E9E030008DD9B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
