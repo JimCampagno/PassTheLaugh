@@ -12,7 +12,6 @@ final class ViewController: UIViewController {
     
     var imageView: UIImageView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +38,7 @@ extension ViewController {
         imageView.rightAnchor.constraintEqualToAnchor(view.rightAnchor).active = true
         imageView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
         imageView.topAnchor.constraintEqualToAnchor(view.topAnchor).active = true
+        imageView.contentMode = .ScaleAspectFit
     }
     
 }
