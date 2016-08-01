@@ -7,6 +7,7 @@ target 'PassTheLaugh' do
 
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'ACEDrawingView'
 
   # Pods for PassTheLaugh
 

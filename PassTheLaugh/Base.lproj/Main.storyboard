@@ -14,13 +14,30 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vjZ-Qk-fhZ" customClass="DrawingToolsView" customModule="PassTheLaugh" customModuleProvider="target">
+                                <rect key="frame" x="589" y="0.0" width="78" height="375"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="78" id="dsy-Lo-DYj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vjZ-Qk-fhZ" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="KZS-EH-rcH"/>
+                            <constraint firstItem="vjZ-Qk-fhZ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Mxi-bW-wNh"/>
+                            <constraint firstItem="vjZ-Qk-fhZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VBW-Nj-Dnq"/>
+                        </constraints>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="377.5" y="359.5"/>
         </scene>
     </scenes>
 </document>

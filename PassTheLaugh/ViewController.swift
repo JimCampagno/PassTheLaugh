@@ -14,21 +14,17 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupImageView()
-        
-        FirebaseAPIclient.downloadImageAtURL(Constants.testimage) { [unowned self] image in
-            guard let image = image else { return }
-            dispatch_async(dispatch_get_main_queue()) {
-                self.imageView.image = image
-            }
-        }
     }
     
 }
 
 // MARK: - Test Out Image Download Methods
 extension ViewController {
+    
+    private func test() {
+        setupImageView()
+        displayTestImage()
+    }
     
     private func setupImageView() {
         imageView = UIImageView(frame: CGRectZero)
@@ -39,6 +35,15 @@ extension ViewController {
         imageView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
         imageView.topAnchor.constraintEqualToAnchor(view.topAnchor).active = true
         imageView.contentMode = .ScaleAspectFit
+    }
+    
+    private func displayTestImage() {
+        FirebaseAPIclient.downloadImageAtURL(Constants.testimage) { [unowned self] image in
+            guard let image = image else { return }
+            dispatch_async(dispatch_get_main_queue()) {
+                self.imageView.image = image
+            }
+        }
     }
     
 }
