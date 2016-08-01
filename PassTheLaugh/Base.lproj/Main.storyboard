@@ -24,12 +24,20 @@
                                     <constraint firstAttribute="width" constant="78" id="dsy-Lo-DYj"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQE-e9-fcU" customClass="ACEDrawingView">
+                                <rect key="frame" x="0.0" y="0.0" width="589" height="375"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vjZ-Qk-fhZ" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="KZS-EH-rcH"/>
                             <constraint firstItem="vjZ-Qk-fhZ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Mxi-bW-wNh"/>
+                            <constraint firstItem="dQE-e9-fcU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PCm-a2-wKh"/>
+                            <constraint firstItem="dQE-e9-fcU" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="PwU-MY-zSG"/>
                             <constraint firstItem="vjZ-Qk-fhZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VBW-Nj-Dnq"/>
+                            <constraint firstItem="dQE-e9-fcU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gTQ-jd-jQm"/>
+                            <constraint firstItem="dQE-e9-fcU" firstAttribute="trailing" secondItem="vjZ-Qk-fhZ" secondAttribute="leading" id="uUG-c9-yQ7"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -37,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="377.5" y="359.5"/>
+            <point key="canvasLocation" x="350.5" y="347.5"/>
         </scene>
     </scenes>
 </document>
