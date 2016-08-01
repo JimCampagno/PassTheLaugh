@@ -3,12 +3,17 @@
 //  PassTheLaugh
 
 import UIKit
+import ACEDrawingView
 
 final class DrawingToolsView: UIView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var redoButton: UIButton!
+    @IBOutlet weak var undoButton: UIButton!
     
+    weak var drawingView: ACEDrawingView!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -21,19 +26,26 @@ final class DrawingToolsView: UIView {
     
 }
 
-// MARK: - Button Tapped Functions
+// MARK: - Action Functions
 extension DrawingToolsView {
     
     @IBAction func buttonTapped(sender: UIButton) {
         switch sender.drawType {
-        case .Info: print("Info tapped.")
-        case .Undo: print("Undo tapped.")
+        case .Redo: drawingView.redoLatestStep()
+        case .Undo: drawingView.undoLatestStep()
         case .Alpha: print("Alpha Tapped.")
         case .Thick: print("Thickness tapped.")
         case .Color: print("Color tapped.")
-        case .Ready: print("Ready tapped.")
+        case .Info: print("Info tapped.")
         case .Unknown: print("Unknown tapped.")
         }
+        
+        updateButtonStatus()
+    }
+    
+    func updateButtonStatus() {
+        undoButton.enabled = drawingView.canUndo()
+        redoButton.enabled = drawingView.canRedo()
     }
     
 }
@@ -56,6 +68,8 @@ extension DrawingToolsView {
     
 }
 
+
+
 // TODO: Remove this Dev Stage Function section when ready to deply app
 // MARK: - Development Stage Functions
 extension DrawingToolsView {
@@ -66,14 +80,16 @@ extension DrawingToolsView {
     }
     
     private func changeBackgroundColorOfContentView() {
-        contentView.backgroundColor = UIColor.grayColor()
+        contentView.backgroundColor = Color.ToolViewColor
     }
     
     private func changeBackgroundcolorOfAllButtons() {
         for view in stackView.subviews {
-            print("We have a view.")
             switch view {
-            case is UIButton: print("It's a BUTTON!"); view.backgroundColor = UIColor.greenColor()
+            case is UIButton:
+                let v: UIButton = view as! UIButton
+                v.backgroundColor = Color.ToolButtonColor
+                v.setTitleColor(Color.ToolButtonTextColor, forState: .Normal)
             default: continue
             }
         }
@@ -85,7 +101,7 @@ extension DrawingToolsView {
 extension UIButton {
     
     enum DrawType: String {
-        case Info, Undo, Alpha, Thick, Color, Ready, Unknown
+        case Redo, Undo, Alpha, Thick, Color, Info, Unknown
     }
     
     var drawType: DrawType {
