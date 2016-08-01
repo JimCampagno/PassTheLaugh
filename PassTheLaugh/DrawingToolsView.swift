@@ -69,7 +69,6 @@ extension DrawingToolsView {
 }
 
 
-
 // TODO: Remove this Dev Stage Function section when ready to deply app
 // MARK: - Development Stage Functions
 extension DrawingToolsView {

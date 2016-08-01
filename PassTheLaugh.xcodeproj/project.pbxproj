@@ -21,6 +21,9 @@
 		7D4BC8E61D4ECACF0008DD9B /* DrawingToolsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D4BC8E51D4ECACF0008DD9B /* DrawingToolsView.xib */; };
 		7D4BC8E81D4ECAF70008DD9B /* DrawingToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4BC8E71D4ECAF70008DD9B /* DrawingToolsView.swift */; };
 		7D4BC8EA1D4EE8970008DD9B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4BC8E91D4EE8970008DD9B /* Color.swift */; };
+		7D4BC8EE1D4EF2A90008DD9B /* ColorChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4BC8ED1D4EF2A90008DD9B /* ColorChangeView.swift */; };
+		7D4BC8F01D4EF7270008DD9B /* ColorChangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D4BC8EF1D4EF7270008DD9B /* ColorChangeTableViewCell.xib */; };
+		7D4BC8F21D4EFB6C0008DD9B /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4BC8F11D4EFB6C0008DD9B /* ColorPalette.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		7D4BC8E51D4ECACF0008DD9B /* DrawingToolsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawingToolsView.xib; sourceTree = "<group>"; };
 		7D4BC8E71D4ECAF70008DD9B /* DrawingToolsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingToolsView.swift; sourceTree = "<group>"; };
 		7D4BC8E91D4EE8970008DD9B /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		7D4BC8ED1D4EF2A90008DD9B /* ColorChangeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorChangeView.swift; sourceTree = "<group>"; };
+		7D4BC8EF1D4EF7270008DD9B /* ColorChangeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorChangeTableViewCell.xib; sourceTree = "<group>"; };
+		7D4BC8F11D4EFB6C0008DD9B /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		B5BBFF9061CA6BCF1808EDD9 /* Pods_PassTheLaughTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PassTheLaughTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B8ADC88CD74B119C5C71F1 /* Pods-PassTheLaugh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassTheLaugh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PassTheLaugh/Pods-PassTheLaugh.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +119,9 @@
 				7D4BC8E31D4EB1A10008DD9B /* DrawViewController.swift */,
 				7D4BC8E71D4ECAF70008DD9B /* DrawingToolsView.swift */,
 				7D4BC8E51D4ECACF0008DD9B /* DrawingToolsView.xib */,
+				7D4BC8ED1D4EF2A90008DD9B /* ColorChangeView.swift */,
+				7D4BC8EF1D4EF7270008DD9B /* ColorChangeTableViewCell.xib */,
+				7D4BC8F11D4EFB6C0008DD9B /* ColorPalette.swift */,
 			);
 			path = PassTheLaugh;
 			sourceTree = "<group>";
@@ -236,6 +245,7 @@
 				7D4BC8CA1D4E9E030008DD9B /* LaunchScreen.storyboard in Resources */,
 				7D4BC8E61D4ECACF0008DD9B /* DrawingToolsView.xib in Resources */,
 				7D4BC8E01D4E9E260008DD9B /* GoogleService-Info.plist in Resources */,
+				7D4BC8F01D4EF7270008DD9B /* ColorChangeTableViewCell.xib in Resources */,
 				7D4BC8C71D4E9E030008DD9B /* Assets.xcassets in Resources */,
 				7D4BC8C51D4E9E030008DD9B /* Main.storyboard in Resources */,
 			);
@@ -351,7 +361,9 @@
 				7D4BC8E41D4EB1A10008DD9B /* DrawViewController.swift in Sources */,
 				7D4BC8C21D4E9E030008DD9B /* ViewController.swift in Sources */,
 				7D4BC8E21D4E9F100008DD9B /* FirebaseAPIclient.swift in Sources */,
+				7D4BC8F21D4EFB6C0008DD9B /* ColorPalette.swift in Sources */,
 				7D4BC8E81D4ECAF70008DD9B /* DrawingToolsView.swift in Sources */,
+				7D4BC8EE1D4EF2A90008DD9B /* ColorChangeView.swift in Sources */,
 				7D4BC8C01D4E9E030008DD9B /* AppDelegate.swift in Sources */,
 				7D4BC8EA1D4EE8970008DD9B /* Color.swift in Sources */,
 			);

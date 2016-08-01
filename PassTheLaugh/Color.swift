@@ -3,6 +3,7 @@
 
 import UIKit
 
+// https://color.adobe.com/Green-Dark-Blue-color-theme-3854662/
 final class Color {
     
     static var DisplayViewColor: UIColor { return UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.00) }

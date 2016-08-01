@@ -100,7 +100,7 @@
                 <constraint firstItem="cbB-JW-bF1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="h4I-TJ-xvu"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="425.5" y="599.5"/>
+            <point key="canvasLocation" x="400.5" y="519.5"/>
         </view>
     </objects>
 </document>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ColorChangeView" customModule="PassTheLaugh" customModuleProvider="target">
+            <connections>
+                <outlet property="color1Button" destination="c4B-mR-SGN" id="cqH-JY-jGM"/>
+                <outlet property="color2Button" destination="JQQ-vr-29B" id="gAF-sQ-X2n"/>
+                <outlet property="color3Button" destination="PcD-Ub-ygf" id="2pj-6D-gvo"/>
+                <outlet property="color4Button" destination="jwx-UL-KMb" id="cvt-Hi-p6A"/>
+                <outlet property="color5Button" destination="6qB-W9-Zt5" id="Ag1-1c-K8c"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Jmw-Wh-xeo"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="106"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hfn-V0-4Mw">
+                    <rect key="frame" x="0.0" y="0.0" width="500" height="106"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-mR-SGN">
+                            <rect key="frame" x="8" y="8" width="91" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="c4B-mR-SGN" secondAttribute="height" multiplier="1:1" id="cVQ-vP-Qx0"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQQ-vr-29B">
+                            <rect key="frame" x="107" y="8" width="90" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="JQQ-vr-29B" secondAttribute="height" multiplier="1:1" id="mLa-lO-eoN"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcD-Ub-ygf">
+                            <rect key="frame" x="205" y="8" width="90" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="PcD-Ub-ygf" secondAttribute="height" multiplier="1:1" id="hrF-aj-Tzd"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-UL-KMb">
+                            <rect key="frame" x="303" y="8" width="91" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="jwx-UL-KMb" secondAttribute="height" multiplier="1:1" id="6aR-P1-OWR"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qB-W9-Zt5">
+                            <rect key="frame" x="402" y="8" width="90" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="6qB-W9-Zt5" secondAttribute="height" multiplier="1:1" id="3dz-BX-MxW"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
+                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="hfn-V0-4Mw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Elb-Kc-qzl"/>
+                <constraint firstItem="hfn-V0-4Mw" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="J9D-MM-9Cb"/>
+                <constraint firstItem="hfn-V0-4Mw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="V7G-1w-GKK"/>
+                <constraint firstItem="hfn-V0-4Mw" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="c5f-pL-Ljx"/>
+            </constraints>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="398" y="500"/>
+        </view>
+    </objects>
+</document>
