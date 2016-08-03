@@ -51,5 +51,23 @@
             </objects>
             <point key="canvasLocation" x="348.5" y="295.5"/>
         </scene>
+        <!--Change Color View Controller-->
+        <scene sceneID="nOQ-Gg-D10">
+            <objects>
+                <viewController restorationIdentifier="ChangeColorVC" storyboardIdentifier="ChangeColorVC" id="lV7-n3-blZ" customClass="ChangeColorViewController" customModule="PassTheLaugh" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U6u-fP-Jxz"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oaa-v8-czz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KRk-HP-UwW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KDs-FB-28L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="341" y="851"/>
+        </scene>
     </scenes>
 </document>

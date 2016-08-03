@@ -5,12 +5,17 @@
 import UIKit
 import ACEDrawingView
 
+protocol ColorChangeRequestDelegate {
+    func requestToChangeColor()
+}
+
 final class DrawingToolsView: UIView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var redoButton: UIButton!
     @IBOutlet weak var undoButton: UIButton!
+    var colorDelegate: ColorChangeRequestDelegate!
     
     weak var drawingView: ACEDrawingView!
 
@@ -35,7 +40,7 @@ extension DrawingToolsView {
         case .Undo: drawingView.undoLatestStep()
         case .Alpha: print("Alpha Tapped.")
         case .Thick: print("Thickness tapped.")
-        case .Color: print("Color tapped.")
+        case .Color: colorDelegate.requestToChangeColor()
         case .Info: print("Info tapped.")
         case .Unknown: print("Unknown tapped.")
         }

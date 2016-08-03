@@ -23,8 +23,8 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cbB-JW-bF1">
                     <rect key="frame" x="8" y="8" width="129" height="457"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIH-Lb-2H8" userLabel="redo">
-                            <rect key="frame" x="30" y="0.0" width="70" height="70"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIH-Lb-2H8" userLabel="redo">
+                            <rect key="frame" x="30" y="0.0" width="69" height="70"/>
                             <accessibility key="accessibilityConfiguration" identifier="Redo"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="CIH-Lb-2H8" secondAttribute="height" multiplier="1:1" id="hTn-hF-3lJ"/>
@@ -34,8 +34,8 @@
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="7tA-tg-MDK"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FS8-MU-6kf">
-                            <rect key="frame" x="30" y="78" width="70" height="70"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FS8-MU-6kf">
+                            <rect key="frame" x="30" y="78" width="69" height="69"/>
                             <accessibility key="accessibilityConfiguration" identifier="Undo"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="FS8-MU-6kf" secondAttribute="height" multiplier="1:1" id="RDy-vW-7ZQ"/>
@@ -45,8 +45,8 @@
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="Y1e-KY-2nv"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Nf-Yx-pOZ">
-                            <rect key="frame" x="30" y="155" width="70" height="70"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Nf-Yx-pOZ">
+                            <rect key="frame" x="30" y="155" width="69" height="70"/>
                             <accessibility key="accessibilityConfiguration" identifier="Alpha"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="5Nf-Yx-pOZ" secondAttribute="height" multiplier="1:1" id="jn2-Pi-rs0"/>
@@ -56,8 +56,8 @@
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="2Xg-35-nE2"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eov-1i-Gha">
-                            <rect key="frame" x="30" y="233" width="70" height="70"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eov-1i-Gha">
+                            <rect key="frame" x="30" y="233" width="69" height="69"/>
                             <accessibility key="accessibilityConfiguration" identifier="Thick"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="eov-1i-Gha" secondAttribute="height" multiplier="1:1" id="mD7-Qx-Ysl"/>
@@ -67,8 +67,8 @@
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="7s2-dZ-VTg"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCV-hh-pVN">
-                            <rect key="frame" x="30" y="310" width="70" height="70"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCV-hh-pVN">
+                            <rect key="frame" x="30" y="310" width="69" height="70"/>
                             <accessibility key="accessibilityConfiguration" identifier="Color"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="xCV-hh-pVN" secondAttribute="height" multiplier="1:1" id="yw1-XZ-vrs"/>
@@ -78,8 +78,8 @@
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="djJ-zS-VIL"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zs-a7-OAA">
-                            <rect key="frame" x="30" y="388" width="70" height="70"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zs-a7-OAA">
+                            <rect key="frame" x="30" y="388" width="69" height="69"/>
                             <accessibility key="accessibilityConfiguration" identifier="Info"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="0Zs-a7-OAA" secondAttribute="height" multiplier="1:1" id="1rC-Vh-3Kx"/>

@@ -24,6 +24,8 @@
 		7D4BC8EE1D4EF2A90008DD9B /* ColorChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4BC8ED1D4EF2A90008DD9B /* ColorChangeView.swift */; };
 		7D4BC8F01D4EF7270008DD9B /* ColorChangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D4BC8EF1D4EF7270008DD9B /* ColorChangeTableViewCell.xib */; };
 		7D4BC8F21D4EFB6C0008DD9B /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4BC8F11D4EFB6C0008DD9B /* ColorPalette.swift */; };
+		7DC5861B1D517D7D0069AFA0 /* ChangeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5861A1D517D7D0069AFA0 /* ChangeColorViewController.swift */; };
+		7DC586211D5180B20069AFA0 /* ColorChangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC586201D5180B20069AFA0 /* ColorChangeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		7D4BC8ED1D4EF2A90008DD9B /* ColorChangeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorChangeView.swift; sourceTree = "<group>"; };
 		7D4BC8EF1D4EF7270008DD9B /* ColorChangeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorChangeTableViewCell.xib; sourceTree = "<group>"; };
 		7D4BC8F11D4EFB6C0008DD9B /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		7DC5861A1D517D7D0069AFA0 /* ChangeColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeColorViewController.swift; sourceTree = "<group>"; };
+		7DC586201D5180B20069AFA0 /* ColorChangeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorChangeCell.swift; sourceTree = "<group>"; };
 		B5BBFF9061CA6BCF1808EDD9 /* Pods_PassTheLaughTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PassTheLaughTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B8ADC88CD74B119C5C71F1 /* Pods-PassTheLaugh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassTheLaugh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PassTheLaugh/Pods-PassTheLaugh.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,21 +111,10 @@
 		7D4BC8BE1D4E9E030008DD9B /* PassTheLaugh */ = {
 			isa = PBXGroup;
 			children = (
-				7D4BC8BF1D4E9E030008DD9B /* AppDelegate.swift */,
-				7D4BC8C11D4E9E030008DD9B /* ViewController.swift */,
-				7D4BC8C31D4E9E030008DD9B /* Main.storyboard */,
-				7D4BC8C61D4E9E030008DD9B /* Assets.xcassets */,
-				7D4BC8C81D4E9E030008DD9B /* LaunchScreen.storyboard */,
-				7D4BC8CB1D4E9E030008DD9B /* Info.plist */,
-				7D4BC8DF1D4E9E260008DD9B /* GoogleService-Info.plist */,
-				7D4BC8E91D4EE8970008DD9B /* Color.swift */,
-				7D4BC8E11D4E9F100008DD9B /* FirebaseAPIclient.swift */,
-				7D4BC8E31D4EB1A10008DD9B /* DrawViewController.swift */,
-				7D4BC8E71D4ECAF70008DD9B /* DrawingToolsView.swift */,
-				7D4BC8E51D4ECACF0008DD9B /* DrawingToolsView.xib */,
-				7D4BC8ED1D4EF2A90008DD9B /* ColorChangeView.swift */,
-				7D4BC8EF1D4EF7270008DD9B /* ColorChangeTableViewCell.xib */,
-				7D4BC8F11D4EFB6C0008DD9B /* ColorPalette.swift */,
+				7DC5861C1D517DA90069AFA0 /* Model */,
+				7DC5861D1D517DC00069AFA0 /* View */,
+				7DC5861E1D517DD70069AFA0 /* Controller */,
+				7DC5861F1D517E040069AFA0 /* Supporting Files */,
 			);
 			path = PassTheLaugh;
 			sourceTree = "<group>";
@@ -133,6 +126,51 @@
 				7D4BC8D61D4E9E030008DD9B /* Info.plist */,
 			);
 			path = PassTheLaughTests;
+			sourceTree = "<group>";
+		};
+		7DC5861C1D517DA90069AFA0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D4BC8E91D4EE8970008DD9B /* Color.swift */,
+				7D4BC8E11D4E9F100008DD9B /* FirebaseAPIclient.swift */,
+				7D4BC8F11D4EFB6C0008DD9B /* ColorPalette.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7DC5861D1D517DC00069AFA0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D4BC8C81D4E9E030008DD9B /* LaunchScreen.storyboard */,
+				7D4BC8C31D4E9E030008DD9B /* Main.storyboard */,
+				7D4BC8E71D4ECAF70008DD9B /* DrawingToolsView.swift */,
+				7D4BC8E51D4ECACF0008DD9B /* DrawingToolsView.xib */,
+				7D4BC8ED1D4EF2A90008DD9B /* ColorChangeView.swift */,
+				7D4BC8EF1D4EF7270008DD9B /* ColorChangeTableViewCell.xib */,
+				7DC586201D5180B20069AFA0 /* ColorChangeCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7DC5861E1D517DD70069AFA0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7D4BC8C11D4E9E030008DD9B /* ViewController.swift */,
+				7D4BC8E31D4EB1A10008DD9B /* DrawViewController.swift */,
+				7DC5861A1D517D7D0069AFA0 /* ChangeColorViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		7DC5861F1D517E040069AFA0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7D4BC8BF1D4E9E030008DD9B /* AppDelegate.swift */,
+				7D4BC8C61D4E9E030008DD9B /* Assets.xcassets */,
+				7D4BC8CB1D4E9E030008DD9B /* Info.plist */,
+				7D4BC8DF1D4E9E260008DD9B /* GoogleService-Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C890022707EAFEBB5A0EC091 /* Pods */ = {
@@ -363,7 +401,9 @@
 				7D4BC8E21D4E9F100008DD9B /* FirebaseAPIclient.swift in Sources */,
 				7D4BC8F21D4EFB6C0008DD9B /* ColorPalette.swift in Sources */,
 				7D4BC8E81D4ECAF70008DD9B /* DrawingToolsView.swift in Sources */,
+				7DC5861B1D517D7D0069AFA0 /* ChangeColorViewController.swift in Sources */,
 				7D4BC8EE1D4EF2A90008DD9B /* ColorChangeView.swift in Sources */,
+				7DC586211D5180B20069AFA0 /* ColorChangeCell.swift in Sources */,
 				7D4BC8C01D4E9E030008DD9B /* AppDelegate.swift in Sources */,
 				7D4BC8EA1D4EE8970008DD9B /* Color.swift in Sources */,
 			);

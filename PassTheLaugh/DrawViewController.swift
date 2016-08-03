@@ -14,6 +14,7 @@ final class DrawViewController: UIViewController {
         super.viewDidLoad()
         drawingView.delegate = self
         toolsView.drawingView = drawingView
+        toolsView.colorDelegate = self
         drawingView.backgroundColor = Color.DisplayViewColor
     }
     
@@ -28,3 +29,25 @@ extension DrawViewController: ACEDrawingViewDelegate {
 
 }
 
+// MARK: - ColorChangeRequest Delegate Methods
+extension DrawViewController: ColorChangeRequestDelegate {
+    
+    func requestToChangeColor() {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let changeColorVC = main.instantiateViewControllerWithIdentifier("ChangeColorVC") as! ChangeColorViewController
+        changeColorVC.modalPresentationStyle = .OverFullScreen
+        changeColorVC.modalTransitionStyle = .CrossDissolve
+        changeColorVC.updateColorDelegate = self
+        presentViewController(changeColorVC, animated: true, completion: nil)
+    }
+    
+}
+
+// MARK: - UpdateColorDelegate Methods
+extension DrawViewController: UpdateColorDelegate {
+    
+    func updateColor(to color: UIColor) {
+        drawingView.lineColor = color
+    }
+    
+}

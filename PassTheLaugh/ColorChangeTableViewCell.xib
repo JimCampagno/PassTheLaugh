@@ -21,44 +21,79 @@
             <rect key="frame" x="0.0" y="0.0" width="500" height="106"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hfn-V0-4Mw">
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hfn-V0-4Mw">
                     <rect key="frame" x="0.0" y="0.0" width="500" height="106"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-mR-SGN">
-                            <rect key="frame" x="8" y="8" width="91" height="90"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="c4B-mR-SGN" secondAttribute="height" multiplier="1:1" id="cVQ-vP-Qx0"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQQ-vr-29B">
+                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Q4w-g5-MQW">
+                            <rect key="frame" x="8" y="8" width="90" height="90"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-mR-SGN">
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="c4B-mR-SGN" secondAttribute="height" multiplier="1:1" id="P0v-XK-MQQ"/>
+                                    </constraints>
+                                    <connections>
+                                        <action selector="colorChangeWithButton:" destination="-1" eventType="touchUpInside" id="6rU-jH-g5P"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="bB0-te-3Xv">
                             <rect key="frame" x="107" y="8" width="90" height="90"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="JQQ-vr-29B" secondAttribute="height" multiplier="1:1" id="mLa-lO-eoN"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcD-Ub-ygf">
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQQ-vr-29B">
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="JQQ-vr-29B" secondAttribute="height" multiplier="1:1" id="cgJ-tf-U4p"/>
+                                    </constraints>
+                                    <connections>
+                                        <action selector="colorChangeWithButton:" destination="-1" eventType="touchUpInside" id="5Zo-bP-NsU"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l9L-jA-KKX">
                             <rect key="frame" x="205" y="8" width="90" height="90"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="PcD-Ub-ygf" secondAttribute="height" multiplier="1:1" id="hrF-aj-Tzd"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-UL-KMb">
-                            <rect key="frame" x="303" y="8" width="91" height="90"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="jwx-UL-KMb" secondAttribute="height" multiplier="1:1" id="6aR-P1-OWR"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qB-W9-Zt5">
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcD-Ub-ygf">
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="PcD-Ub-ygf" secondAttribute="height" multiplier="1:1" id="b60-ly-nQf"/>
+                                    </constraints>
+                                    <connections>
+                                        <action selector="colorChangeWithButton:" destination="-1" eventType="touchUpInside" id="cBh-Hj-r0E"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SGR-ot-rwk">
+                            <rect key="frame" x="304" y="8" width="90" height="90"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-UL-KMb">
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="jwx-UL-KMb" secondAttribute="height" multiplier="1:1" id="aUH-D8-f3f"/>
+                                    </constraints>
+                                    <connections>
+                                        <action selector="colorChangeWithButton:" destination="-1" eventType="touchUpInside" id="0yP-Jm-6UI"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2xK-ks-bba">
                             <rect key="frame" x="402" y="8" width="90" height="90"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="6qB-W9-Zt5" secondAttribute="height" multiplier="1:1" id="3dz-BX-MxW"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                        </button>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qB-W9-Zt5">
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="6qB-W9-Zt5" secondAttribute="height" multiplier="1:1" id="gla-ze-4mi"/>
+                                    </constraints>
+                                    <connections>
+                                        <action selector="colorChangeWithButton:" destination="-1" eventType="touchUpInside" id="PKY-yf-844"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                 </stackView>
@@ -72,7 +107,7 @@
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="398" y="500"/>
+            <point key="canvasLocation" x="369" y="480"/>
         </view>
     </objects>
 </document>
