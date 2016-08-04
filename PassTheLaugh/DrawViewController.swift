@@ -10,6 +10,8 @@ final class DrawViewController: UIViewController {
     @IBOutlet weak var toolsView: DrawingToolsView!
     @IBOutlet weak var drawingView: ACEDrawingView!
     
+    let main = UIStoryboard(name: "Main", bundle: nil)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         drawingView.delegate = self
@@ -33,12 +35,21 @@ extension DrawViewController: ACEDrawingViewDelegate {
 extension DrawViewController: ColorChangeRequestDelegate {
     
     func requestToChangeColor() {
-        let main = UIStoryboard(name: "Main", bundle: nil)
         let changeColorVC = main.instantiateViewControllerWithIdentifier("ChangeColorVC") as! ChangeColorViewController
         changeColorVC.modalPresentationStyle = .OverFullScreen
         changeColorVC.modalTransitionStyle = .CrossDissolve
         changeColorVC.updateColorDelegate = self
         presentViewController(changeColorVC, animated: true, completion: nil)
+    }
+    
+    func requestToChangeAlpha() {
+        let alphaVC = main.instantiateViewControllerWithIdentifier("AlphaVC") as! AlphaViewController
+        alphaVC.modalPresentationStyle = .OverFullScreen
+        alphaVC.modalTransitionStyle = .CrossDissolve
+        alphaVC.currentColor = drawingView.lineColor
+        alphaVC.currentAlphaValue = CGColorGetAlpha(drawingView.lineColor.CGColor)
+        alphaVC.widthOfSideBar = toolsView.frame.size.width
+        presentViewController(alphaVC, animated: true, completion: nil)
     }
     
 }
