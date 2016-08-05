@@ -47,8 +47,9 @@ extension DrawViewController: ColorChangeRequestDelegate {
         alphaVC.modalPresentationStyle = .OverFullScreen
         alphaVC.modalTransitionStyle = .CrossDissolve
         alphaVC.currentColor = drawingView.lineColor
-        alphaVC.currentAlphaValue = CGColorGetAlpha(drawingView.lineColor.CGColor)
+        alphaVC.currentAlphaValue = drawingView.lineAlpha
         alphaVC.widthOfSideBar = toolsView.frame.size.width
+        alphaVC.updateAlphaDelegate = self
         presentViewController(alphaVC, animated: true, completion: nil)
     }
     
@@ -61,4 +62,12 @@ extension DrawViewController: UpdateColorDelegate {
         drawingView.lineColor = color
     }
     
+}
+
+// MARK: - UpdateAlphaDelegate Methods
+extension DrawViewController: UpdateAlphaDelegate {
+    
+    func updateAlpha(to alpha: CGFloat) {
+        drawingView.lineAlpha = alpha
+    }
 }
