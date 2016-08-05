@@ -8,6 +8,7 @@ import ACEDrawingView
 protocol ColorChangeRequestDelegate {
     func requestToChangeColor()
     func requestToChangeAlpha()
+    func requestToLookAtInfo()
 }
 
 final class DrawingToolsView: UIView {
@@ -42,7 +43,7 @@ extension DrawingToolsView {
         case .Alpha: colorDelegate.requestToChangeAlpha()
         case .Thick: print("Thickness tapped.")
         case .Color: colorDelegate.requestToChangeColor()
-        case .Info: print("Info tapped.")
+        case .Info: colorDelegate.requestToLookAtInfo()
         case .Unknown: print("Unknown tapped.")
         }
         

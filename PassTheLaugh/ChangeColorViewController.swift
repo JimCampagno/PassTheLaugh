@@ -20,6 +20,8 @@ final class ChangeColorViewController: UIViewController {
     var colorPalettes: [ColorPalette] = ColorPalette.dummyData()
     var updateColorDelegate: UpdateColorDelegate!
     let rowHeight: CGFloat = 106
+    var widthOfSideBar: CGFloat!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,16 +56,20 @@ extension ChangeColorViewController {
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
-        tableView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+        let centerX = tableView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor)
+        centerX.constant -= widthOfSideBar / 2
+        centerX.active = true
         tableView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
-        tableView.heightAnchor.constraintEqualToAnchor(view.heightAnchor, multiplier: 0.7).active = true
         tableView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.7).active = true
+        tableView.topAnchor.constraintEqualToAnchor(view.topAnchor).active = true
+        tableView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
 
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerClass(ColorChangeCell.self, forCellReuseIdentifier: ColorChangeCell.identifier)
         tableView.separatorStyle = .None
         tableView.allowsSelection = false
+        tableView.showsVerticalScrollIndicator = false
     }
     
 }

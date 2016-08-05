@@ -94,6 +94,9 @@ extension AlphaViewController {
         let centerY = dummyView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor)
         centerY.constant -= view.frame.size.height / 4
         centerY.active = true
+        
+        dummyView.clipsToBounds = true
+        dummyView.layer.cornerRadius = height / 2
     }
     
 }

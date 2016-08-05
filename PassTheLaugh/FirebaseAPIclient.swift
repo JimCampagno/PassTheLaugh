@@ -14,12 +14,12 @@ final class Constants {
 final class FirebaseAPIclient {
     
     static let sharedClient = FirebaseAPIclient()
-    
     let ref = FIRDatabase.database().reference()
-    
     let storage = FIRStorage.storage()
+    let storageRef = FIRStorage.storage().reference()
     
     init() { }
+    
 }
 
 // MARK: - Downloading Image Methods
@@ -38,6 +38,34 @@ extension FirebaseAPIclient {
         }
         
         downloadTask.resume()
+    }
+    
+}
+
+// MARK: - Uploading Image Methods
+extension FirebaseAPIclient {
+    
+    static func uploadImage(image: UIImage, completion: (Bool) -> ()) {
+        guard let data = UIImagePNGRepresentation(image) else { completion(false); return }
+        
+        // Create a reference to the file you want to upload
+        let riversRef = FirebaseAPIclient.sharedClient.storageRef.child("images/test.png")
+        
+        _ = riversRef.putData(data, metadata: nil) { metadata, error in
+            if (error != nil) {
+                print("error occurred, it is \(error)")
+                print("An error occurred")
+                // Uh-oh, an error occurred!
+            } else {
+                // Metadata contains file metadata such as size, content-type, and download URL.
+                let downloadURL = metadata!.downloadURL()
+                print("Meta Data! \(downloadURL)")
+                completion(true)
+            }
+        }
+        
+        
+        
     }
     
 }

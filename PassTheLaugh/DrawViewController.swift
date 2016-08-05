@@ -39,6 +39,7 @@ extension DrawViewController: ColorChangeRequestDelegate {
         changeColorVC.modalPresentationStyle = .OverFullScreen
         changeColorVC.modalTransitionStyle = .CrossDissolve
         changeColorVC.updateColorDelegate = self
+        changeColorVC.widthOfSideBar = toolsView.frame.size.width
         presentViewController(changeColorVC, animated: true, completion: nil)
     }
     
@@ -51,6 +52,18 @@ extension DrawViewController: ColorChangeRequestDelegate {
         alphaVC.widthOfSideBar = toolsView.frame.size.width
         alphaVC.updateAlphaDelegate = self
         presentViewController(alphaVC, animated: true, completion: nil)
+    }
+    
+    func requestToLookAtInfo() {
+        // TODO: This just present a view showcasing the name of the image to be drawn. Maybe a timer. Another button in this view to be able to submit the drawing. For now, I'm just having it take a screenshot and sending that up to Firebase.
+        
+        let drawingImage = drawingView.image
+        FirebaseAPIclient.uploadImage(drawingImage) { _ in
+            print("HI everyone.")
+        }
+        
+        
+        
     }
     
 }
