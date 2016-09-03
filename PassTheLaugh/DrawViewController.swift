@@ -4,8 +4,11 @@
 
 import UIKit
 import ACEDrawingView
+import Firebase
 
 final class DrawViewController: UIViewController {
+    
+    let gameClient = GameAPIclient()
     
     @IBOutlet weak var toolsView: DrawingToolsView!
     @IBOutlet weak var drawingView: ACEDrawingView!
@@ -14,6 +17,8 @@ final class DrawViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        gameClient.createGame()
         drawingView.delegate = self
         toolsView.drawingView = drawingView
         toolsView.colorDelegate = self
