@@ -8,41 +8,63 @@
 
 import Foundation
 
-
-protocol Game {
+final class Game: GameProtocol {
     
-    var round: Int { get set }
-    var roomNumber: Int { get set }
-    var players:  [Player] { get set }
-    var readyPlayers: Int { get set }
-    var nextRoundStatus: NextRoundStatus { get set }
-    var totalPlayers: Int { get }
-    var isNowReadyForNextRound: Bool { get }
-    var gameMode: GameMode { get set }
+    var round: Int = 0
+    var roomID: String
+    var players: [Player] = []
+    var readyPlayers: Int = 0
+    var nextRoundStatus: NextRoundStatus = .NotReady
+    var gameMode: GameMode = .Word
+    var firebaseValue: AnyObject? { return createFirebaseValue() }
+    var playerValues: [NSDictionary] { return createPlayerValues() }
+    let currentPlayer: Player
     
-    func createGame()
-    func joinGame()
-    func isReadyForNextRound() -> Bool
+    init(roomID: String, currentPlayer: Player) {
+        self.roomID = roomID
+        self.currentPlayer = currentPlayer
+        
+        // TODO: Is this a reference cycle? Fix it.
+        players.append(currentPlayer)
+    }
+    
+    func createGame() {
+        
+    }
+    
+    func joinGame() {
+        
+    }
+    
+    func isReadyForNextRound() -> Bool {
+        return false
+    }
+    
+    
+   
     
 }
+    
+    
 
-// MARK: Default Implementation
+
+// MARK: Firebase
 extension Game {
     
-    var totalPlayers: Int { return players.count }
-    var isNowReadyForNextRound: Bool { return readyPlayers == totalPlayers }
+    func createFirebaseValue() -> AnyObject? {
+        let result: AnyObject? = [
+            "round" : round,
+            "ready" : nextRoundStatus.rawValue,
+            "readyPlayers" : readyPlayers,
+            "players" : playerValues
+            ]
+        
+        return result
+        
+    }
     
-}
-
-// MARK: Enumerations for Game Class
-enum NextRoundStatus: Int {
-    
-    case Ready, NotReady
-    
-}
-
-enum GameMode {
-    
-    case Drawing, Word
+    func createPlayerValues() -> [NSDictionary] {
+        return players.map { $0.firebaseValue }
+    }
     
 }

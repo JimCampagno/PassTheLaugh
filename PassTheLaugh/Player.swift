@@ -11,6 +11,40 @@ import Foundation
 
 final class Player {
     
-    // TODO: Make this class.
+    let playerID: String
+    var word: String?
+    var status: Status = .NotReady
+    var guess: String?
+    var drawingURL: String?
+    var firebaseValue: NSDictionary { return createFirebaseValue() }
+    
+    init(playerID: String) {
+        self.playerID = playerID
+    }
+    
+}
+
+// MARK: Firebase
+extension Player {
+    
+    func createFirebaseValue() -> NSDictionary {
+        let result = [
+            "id" : playerID,
+            "ready" : status.rawValue,
+            "word" : word ?? "No Word",
+            "guess" : guess ?? "No Guess",
+            "drawingURL" : drawingURL ?? "No URL"
+        ]
+        
+        return result
+    }
+
+    
+}
+
+
+enum Status: Int {
+    
+    case NotReady, Ready
     
 }
