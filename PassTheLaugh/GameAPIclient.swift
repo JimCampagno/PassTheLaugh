@@ -9,6 +9,15 @@
 import Foundation
 import Firebase
 
+enum GameMessages {
+    
+    case NoGame(message: String)
+    case GameIsFull(message: String)
+    case Nothing
+    
+    
+}
+
 
 final class GameAPIclient {
     
@@ -27,36 +36,30 @@ final class GameAPIclient {
 extension GameAPIclient {
     
     func createGame(handler: (success: Bool) -> Void) {
-        roomRef.child(randomRoomID).observeSingleEventOfType(.Value) { [unowned self] (snap: FIRDataSnapshot) in
-            if snap.value is NSNull {
-                // TODO: We need to generate an ID associated with each user. This should be done when they first sign-up to use the app, authorizing them.
-                let playerID = "117996"
-                let currentPlayer = Player(playerID: playerID)
-                let game = Game(roomID: self.roomID, currentPlayer: currentPlayer)
-                
-                self.roomRef.child(self.roomID).setValue(game.firebaseValue, withCompletionBlock: { (error: NSError?, ref: FIRDatabaseReference) in
-                    print("This is error: \(error)")
-                    print("This is the ref: \(ref)")
-                    
-                    handler(success: true)
-                })
-                
-            } else {
-                // TODO: If a game already exists, we enter this else block. I'm calling on the function again. This should be cleaned up.
-                NSOperationQueue.mainQueue().addOperationWithBlock {
-                    self.createGame { success in
-                        handler(success: success)
-                    }
+        doesGameExist(withID: randomRoomID) { [unowned self] gameExists in
+            dispatch_async(dispatch_get_main_queue(),{
+                switch gameExists {
+                case true: self.createGame { handler(success: $0) }
+                case false: self.createRoomOnFirebase { handler(success: $0) }
                 }
-            }
+            })
         }
-        
     }
     
-    private func createRoom(withNumber number: String) {
+    private func createRoomOnFirebase(handler: (success: Bool) -> Void) {
+        // TODO: We need to generate an ID associated with each user. This should be done when they first sign-up to use the app, authorizing them.
+        let playerID = "117996"
+        let currentPlayer = Player(playerID: playerID)
+        let game = Game(roomID: self.roomID, currentPlayer: currentPlayer)
         
+        self.roomRef.child(self.roomID).setValue(game.firebaseValue, withCompletionBlock: { (error: NSError?, ref: FIRDatabaseReference) in
+            // TODO: Handle Error here.
+            dispatch_async(dispatch_get_main_queue(),{
+                handler(success: true)
+            })
+        })
     }
-
+    
 }
 
 
@@ -64,13 +67,61 @@ extension GameAPIclient {
 
 extension GameAPIclient {
     
-    func joinRoom(withID id: String, handler: (success: Bool) -> Void) {
-        
-        
-        
+    func joinGame(withID id: String, handler: (success: Bool, message: GameMessages) -> Void) {
+        roomID = id
+        doesGameExist(withID: id) { [unowned self] gameExists in
+            dispatch_async(dispatch_get_main_queue(),{
+                switch gameExists {
+                // TODO: With the true case, we're not checking to see if the game is full. Can it be full? I haven't decided how that works yet.
+                case true: self.joinRoomOnFirebase { handler(success: $0, message: .Nothing) }
+                case false: handler(success: false, message: .NoGame(message: "Attempting to join game \(id), it doesn't exist. Please try again."))
+                }
+            })
+        }
     }
     
+    private func joinRoomOnFirebase(handler: (success: Bool) -> Void) {
+        let currentPlayer = Player(playerID: "68149")
+        roomRef.child(roomID).child("players").child(currentPlayer.playerID).setValue(currentPlayer.firebaseValue) { (error: NSError?, ref: FIRDatabaseReference) in
+            // TODO: Handle Error here.
+            dispatch_async(dispatch_get_main_queue(),{
+                handler(success: true)
+            })
+        }
+    }
     
+}
+
+
+// MARK: Live Gameplay
+
+extension GameAPIclient {
+    
+    func createConnectionToRoom() {
+        roomRef.child(roomID).observeEventType(.Value, withBlock: { snapshot in
+            dispatch_async(dispatch_get_main_queue(), {
+                print(snapshot.value) })
+            }, withCancelBlock: { error in
+                dispatch_async(dispatch_get_main_queue(), {
+                    print(error.description)
+                })
+        })
+    }
+    
+}
+
+
+// MARK: Helper Functions
+
+extension GameAPIclient {
+    
+    func doesGameExist(withID id: String, handler: (gameExists: Bool) -> Void) {
+        roomRef.child(id).observeSingleEventOfType(.Value) { (snap: FIRDataSnapshot) in
+            dispatch_async(dispatch_get_main_queue(),{
+                handler(gameExists: !(snap.value is NSNull))
+            })
+        }
+    }
     
 }
 
@@ -92,6 +143,8 @@ extension GameAPIclient {
     }
     
 }
+
+
 
 
 

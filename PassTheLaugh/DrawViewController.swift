@@ -18,11 +18,32 @@ final class DrawViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gameClient = GameAPIclient()
-        gameClient.createGame()
+
+     //   createGame()
+        
+     //  joinGame(withID: "922339")
+        
+        
         drawingView.delegate = self
         toolsView.drawingView = drawingView
         toolsView.colorDelegate = self
         drawingView.backgroundColor = Color.DisplayViewColor
+    }
+    
+    func joinGame(withID id: String) {
+        
+        gameClient.joinGame(withID: id) { (success, message) in
+            print(success)
+            print(message)
+        }
+    }
+    
+    func createGame() {
+        
+                gameClient.createGame { (success) in
+                    print(success)
+                }
+        
     }
     
 }

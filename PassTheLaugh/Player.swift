@@ -28,15 +28,13 @@ final class Player {
 extension Player {
     
     func createFirebaseValue() -> NSDictionary {
-        let result = [
+        return [
             "id" : playerID,
             "ready" : status.rawValue,
             "word" : word ?? "No Word",
             "guess" : guess ?? "No Guess",
             "drawingURL" : drawingURL ?? "No URL"
         ]
-        
-        return result
     }
 
     

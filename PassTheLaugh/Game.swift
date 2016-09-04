@@ -13,17 +13,16 @@ final class Game: GameProtocol {
     var round: Int = 0
     var roomID: String
     var players: [Player] = []
-    var readyPlayers: Int = 0
+    var readyPlayers: Int = 1
     var nextRoundStatus: NextRoundStatus = .NotReady
     var gameMode: GameMode = .Word
     var firebaseValue: AnyObject? { return createFirebaseValue() }
-    var playerValues: [NSDictionary] { return createPlayerValues() }
+    var playerValues: NSDictionary { return createPlayerValues() }
     let currentPlayer: Player
     
     init(roomID: String, currentPlayer: Player) {
         self.roomID = roomID
         self.currentPlayer = currentPlayer
-        
         // TODO: Is this a reference cycle? Fix it.
         players.append(currentPlayer)
     }
@@ -58,13 +57,15 @@ extension Game {
             "readyPlayers" : readyPlayers,
             "players" : playerValues
             ]
-        
         return result
-        
     }
     
-    func createPlayerValues() -> [NSDictionary] {
-        return players.map { $0.firebaseValue }
+    func createPlayerValues() -> NSDictionary {
+        var result: [String : NSDictionary] = [:]
+        for player in players {
+            result[player.playerID] = player.firebaseValue
+        }
+        return result
     }
     
 }
