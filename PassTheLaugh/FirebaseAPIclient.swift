@@ -6,7 +6,6 @@ import Firebase
 final class Constants {
     
     static let storageURL = "gs://passthelaugh-614f2.appspot.com"
-    
     static let testimage = "https://firebasestorage.googleapis.com/v0/b/passthelaugh-614f2.appspot.com/o/CuteDogCat.png?alt=media&token=ed59a5d8-29c4-47ed-b9b9-3e3a838672e9"
     
 }

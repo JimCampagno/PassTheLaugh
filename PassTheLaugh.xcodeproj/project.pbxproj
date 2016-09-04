@@ -10,6 +10,7 @@
 		3D34590276EBA9B8F4B946CF /* Pods_PassTheLaughTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5BBFF9061CA6BCF1808EDD9 /* Pods_PassTheLaughTests.framework */; };
 		4F731745E3A25DD41BDCD1E1 /* Pods_PassTheLaugh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54451268C645D5C42DF67EC2 /* Pods_PassTheLaugh.framework */; };
 		7D076DE51D7B9C4B0093EB39 /* GameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D076DE41D7B9C4B0093EB39 /* GameProtocol.swift */; };
+		7D076DE71D7BD96C0093EB39 /* GameMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D076DE61D7BD96C0093EB39 /* GameMessages.swift */; };
 		7D4BC8C01D4E9E030008DD9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4BC8BF1D4E9E030008DD9B /* AppDelegate.swift */; };
 		7D4BC8C21D4E9E030008DD9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4BC8C11D4E9E030008DD9B /* ViewController.swift */; };
 		7D4BC8C51D4E9E030008DD9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D4BC8C31D4E9E030008DD9B /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		3C8F27A2B083F224B7EA463E /* Pods-PassTheLaugh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassTheLaugh.release.xcconfig"; path = "Pods/Target Support Files/Pods-PassTheLaugh/Pods-PassTheLaugh.release.xcconfig"; sourceTree = "<group>"; };
 		54451268C645D5C42DF67EC2 /* Pods_PassTheLaugh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PassTheLaugh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D076DE41D7B9C4B0093EB39 /* GameProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameProtocol.swift; sourceTree = "<group>"; };
+		7D076DE61D7BD96C0093EB39 /* GameMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMessages.swift; sourceTree = "<group>"; };
 		7D4BC8BC1D4E9E030008DD9B /* PassTheLaugh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassTheLaugh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D4BC8BF1D4E9E030008DD9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D4BC8C11D4E9E030008DD9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				7DF007851D7B7F5000F96252 /* Game.swift */,
 				7DF007871D7B800700F96252 /* Player.swift */,
 				7D076DE41D7B9C4B0093EB39 /* GameProtocol.swift */,
+				7D076DE61D7BD96C0093EB39 /* GameMessages.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				7DC586211D5180B20069AFA0 /* ColorChangeCell.swift in Sources */,
 				7D4BC8C01D4E9E030008DD9B /* AppDelegate.swift in Sources */,
 				7D4BC8EA1D4EE8970008DD9B /* Color.swift in Sources */,
+				7D076DE71D7BD96C0093EB39 /* GameMessages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

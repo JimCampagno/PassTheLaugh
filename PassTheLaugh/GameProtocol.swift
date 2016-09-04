@@ -35,7 +35,7 @@ extension GameProtocol {
     
 }
 
-// MARK: Enumerations for Game Class
+
 enum NextRoundStatus: Int {
     
     case NotReady, Ready

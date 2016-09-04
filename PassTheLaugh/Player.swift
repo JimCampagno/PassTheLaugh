@@ -36,13 +36,10 @@ extension Player {
             "drawingURL" : drawingURL ?? "No URL"
         ]
     }
-
     
 }
 
 
 enum Status: Int {
-    
     case NotReady, Ready
-    
 }

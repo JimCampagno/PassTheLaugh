@@ -9,16 +9,6 @@
 import Foundation
 import Firebase
 
-enum GameMessages {
-    
-    case NoGame(message: String)
-    case GameIsFull(message: String)
-    case Nothing
-    
-    
-}
-
-
 final class GameAPIclient {
     
     var roomRef = FIRDatabase.database().reference().child("rooms")
@@ -97,6 +87,7 @@ extension GameAPIclient {
 
 extension GameAPIclient {
     
+    // TODO: I feel like the Game class should have an instance property of type GameAPLIclient where this function gets called similar to how I'm doing it in the DrawViewController.swift file: After the sucess comes back on the joinGame method. Need to do the same for createGame method.
     func createConnectionToRoom() {
         roomRef.child(roomID).observeEventType(.Value, withBlock: { snapshot in
             dispatch_async(dispatch_get_main_queue(), {
@@ -126,7 +117,7 @@ extension GameAPIclient {
 }
 
 
-// MARK: Random Generator
+// MARK: Random Room ID Generator
 
 extension GameAPIclient {
     
@@ -143,18 +134,4 @@ extension GameAPIclient {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

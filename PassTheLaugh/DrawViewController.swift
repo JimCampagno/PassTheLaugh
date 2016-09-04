@@ -14,15 +14,13 @@ final class DrawViewController: UIViewController {
     @IBOutlet weak var drawingView: ACEDrawingView!
     
     let main = UIStoryboard(name: "Main", bundle: nil)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         gameClient = GameAPIclient()
-
-     //   createGame()
-        
-     //  joinGame(withID: "922339")
-        
+        //   createGame()
+        joinGame(withID: "922339")
         
         drawingView.delegate = self
         toolsView.drawingView = drawingView
@@ -30,19 +28,22 @@ final class DrawViewController: UIViewController {
         drawingView.backgroundColor = Color.DisplayViewColor
     }
     
+    // TODO: This should have a completion handler, clean it up.
     func joinGame(withID id: String) {
-        
-        gameClient.joinGame(withID: id) { (success, message) in
+        gameClient.joinGame(withID: id) { [unowned self] (success, message) in
             print(success)
             print(message)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.gameClient.createConnectionToRoom()
+            })
         }
     }
     
+    // TODO: This should have a completion handler, clean it up.
     func createGame() {
-        
-                gameClient.createGame { (success) in
-                    print(success)
-                }
+        gameClient.createGame { (success) in
+            print(success)
+        }
         
     }
     
@@ -54,7 +55,7 @@ extension DrawViewController: ACEDrawingViewDelegate {
     func drawingView(view: ACEDrawingView!, didEndDrawUsingTool tool: ACEDrawingTool!) {
         toolsView.updateButtonStatus()
     }
-
+    
 }
 
 // MARK: - ColorChangeRequest Delegate Methods

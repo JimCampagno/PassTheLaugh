@@ -27,27 +27,16 @@ final class Game: GameProtocol {
         players.append(currentPlayer)
     }
     
-    func createGame() {
-        
-    }
-    
-    func joinGame() {
-        
-    }
-    
-    func isReadyForNextRound() -> Bool {
-        return false
-    }
-    
-    
-   
+    // TODO: Implement these methods. Have them work with the GameAPIClient?
+    func createGame() { }
+    func joinGame() { }
+    func isReadyForNextRound() -> Bool { return false }
     
 }
-    
-    
 
 
 // MARK: Firebase
+
 extension Game {
     
     func createFirebaseValue() -> AnyObject? {
@@ -60,6 +49,7 @@ extension Game {
         return result
     }
     
+    // TODO: This seems to only get called when a user first creates a room. That means there would only ever be one person available on creation of the room. We don't need to to loop through the players array, we can just commpute it for cunrrentPlayer. Does that seem right?
     func createPlayerValues() -> NSDictionary {
         var result: [String : NSDictionary] = [:]
         for player in players {
