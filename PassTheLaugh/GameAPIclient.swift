@@ -17,6 +17,8 @@ final class GameAPIclient {
     var roomID: String = String()
     private var randomRoomID: String { roomID = randomRoom(); return roomID }
     private let lengthOfRoomNumber: Int = 6
+    weak var game: Game! = nil
+    var gameStarted = false
     
 }
 
@@ -37,16 +39,14 @@ extension GameAPIclient {
     }
     
     private func createRoomOnFirebase(handler: (success: Bool) -> Void) {
-        // TODO: We need to generate an ID associated with each user. This should be done when they first sign-up to use the app, authorizing them.
-        let playerID = "117996"
-        let currentPlayer = Player(playerID: playerID)
-        let game = Game(roomID: self.roomID, currentPlayer: currentPlayer)
-        
-        self.roomRef.child(self.roomID).setValue(game.firebaseValue, withCompletionBlock: { (error: NSError?, ref: FIRDatabaseReference) in
-            // TODO: Handle Error here.
+        self.roomRef.child(self.roomID).setValue(game.firebaseValue, withCompletionBlock: { [unowned self] (error: NSError?, ref: FIRDatabaseReference) in
             dispatch_async(dispatch_get_main_queue(),{
-                handler(success: true)
-            })
+                self.createConnectionToRoom { success in
+                        dispatch_async(dispatch_get_main_queue(), {
+                            handler(success: true)
+                        })
+                }
+           })
         })
     }
     
@@ -57,7 +57,7 @@ extension GameAPIclient {
 
 extension GameAPIclient {
     
-    func joinGame(withID id: String, handler: (success: Bool, message: GameMessages) -> Void) {
+    func joinGame(withID id: String, handler: (success: Bool, message: GameMessage) -> Void) {
         roomID = id
         doesGameExist(withID: id) { [unowned self] gameExists in
             dispatch_async(dispatch_get_main_queue(),{
@@ -71,10 +71,31 @@ extension GameAPIclient {
     }
     
     private func joinRoomOnFirebase(handler: (success: Bool) -> Void) {
-        let currentPlayer = Player(playerID: "68149")
-        roomRef.child(roomID).child("players").child(currentPlayer.playerID).setValue(currentPlayer.firebaseValue) { (error: NSError?, ref: FIRDatabaseReference) in
+        roomRef.child(roomID).child("players").child(game.currentPlayer.playerID).setValue(game.currentPlayer.firebaseValue) { [unowned self] (error: NSError?, ref: FIRDatabaseReference) in
             // TODO: Handle Error here.
             dispatch_async(dispatch_get_main_queue(),{
+                self.createConnectionToRoom { success in
+                        dispatch_async(dispatch_get_main_queue(), {
+                            handler(success: success)
+                        })
+                }
+            })
+        }
+    }
+    
+}
+
+
+// MARK: Starting The Game
+
+extension GameAPIclient {
+    
+    func startTheGame(handler: (success: Bool) -> Void) {
+        roomRef.child(roomID).child("round").setValue(1) { (error: NSError?, ref: FIRDatabaseReference) in
+            dispatch_async(dispatch_get_main_queue(), {
+                // TODO: Handle Error case here.
+                print("We should have set the ready to 1 here")
+                print("Ref is \(ref)")
                 handler(success: true)
             })
         }
@@ -88,10 +109,20 @@ extension GameAPIclient {
 extension GameAPIclient {
     
     // TODO: I feel like the Game class should have an instance property of type GameAPLIclient where this function gets called similar to how I'm doing it in the DrawViewController.swift file: After the sucess comes back on the joinGame method. Need to do the same for createGame method.
-    func createConnectionToRoom() {
-        roomRef.child(roomID).observeEventType(.Value, withBlock: { snapshot in
+    func createConnectionToRoom(handler: (success: Bool) -> Void) {
+        roomRef.child(roomID).observeEventType(.Value, withBlock: { [unowned self] snapshot in
             dispatch_async(dispatch_get_main_queue(), {
-                print(snapshot.value) })
+                if !self.gameStarted {
+                    self.gameStarted = true
+                    handler(success: true)
+                }
+                
+                
+                
+                print("Getting back LIVE INFO")
+                print(snapshot.value)
+                
+            })
             }, withCancelBlock: { error in
                 dispatch_async(dispatch_get_main_queue(), {
                     print(error.description)
@@ -125,7 +156,7 @@ extension GameAPIclient {
         var result: String = String()
         
         for _ in 0..<lengthOfRoomNumber {
-            let randomNumber = arc4random_uniform(9) + 1
+            let randomNumber = arc4random_uniform(10)
             let randomNumberString = String(randomNumber)
             result += randomNumberString
         }

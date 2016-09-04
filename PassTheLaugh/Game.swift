@@ -11,26 +11,66 @@ import Foundation
 final class Game: GameProtocol {
     
     var round: Int = 0
-    var roomID: String
+    var roomID: String = String()
     var players: [Player] = []
-    var readyPlayers: Int = 1
-    var nextRoundStatus: NextRoundStatus = .NotReady
+    var readyPlayers: Int = 0
     var gameMode: GameMode = .Word
     var firebaseValue: AnyObject? { return createFirebaseValue() }
     var playerValues: NSDictionary { return createPlayerValues() }
     let currentPlayer: Player
+    let gameAPI: GameAPIclient = GameAPIclient()
     
-    init(roomID: String, currentPlayer: Player) {
-        self.roomID = roomID
+    init(currentPlayer: Player) {
         self.currentPlayer = currentPlayer
+        gameAPI.game = self
         // TODO: Is this a reference cycle? Fix it.
         players.append(currentPlayer)
     }
     
-    // TODO: Implement these methods. Have them work with the GameAPIClient?
-    func createGame() { }
-    func joinGame() { }
-    func isReadyForNextRound() -> Bool { return false }
+}
+
+
+// MARK: Creating a Game
+
+extension Game {
+    
+    func createGame(handler: (success: Bool) -> Void) {
+        gameAPI.createGame { success in
+            dispatch_async(dispatch_get_main_queue(), { 
+                handler(success: success)
+            })
+        }
+    }
+    
+}
+
+
+// MARK: Joining a Game
+
+extension Game {
+    
+    func joinGame(withRoomID id: String, handler: (success: Bool, message: GameMessage) -> Void) {
+        gameAPI.joinGame(withID: id) { success, message in
+            dispatch_async(dispatch_get_main_queue(), { 
+                handler(success: success, message: message)
+            })
+        }
+    }
+    
+}
+
+
+// MARK: Starting a Game
+
+extension Game {
+    
+    func startGame(handler: (success: Bool) -> Void) {
+        gameAPI.startTheGame { success in
+            dispatch_async(dispatch_get_main_queue(), {
+                handler(success: success)
+            })
+        }
+    }
     
 }
 
@@ -42,7 +82,6 @@ extension Game {
     func createFirebaseValue() -> AnyObject? {
         let result: AnyObject? = [
             "round" : round,
-            "ready" : nextRoundStatus.rawValue,
             "readyPlayers" : readyPlayers,
             "players" : playerValues
             ]

@@ -9,7 +9,7 @@
 import Foundation
 
 
-enum GameMessages {
+enum GameMessage {
     
     case NoGame(message: String)
     case GameIsFull(message: String)

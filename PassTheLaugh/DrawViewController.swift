@@ -8,7 +8,7 @@ import Firebase
 
 final class DrawViewController: UIViewController {
     
-    var gameClient: GameAPIclient! = nil
+    var game: Game! = nil
     
     @IBOutlet weak var toolsView: DrawingToolsView!
     @IBOutlet weak var drawingView: ACEDrawingView!
@@ -18,33 +18,13 @@ final class DrawViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gameClient = GameAPIclient()
-        //   createGame()
-        joinGame(withID: "922339")
+        game = Game(currentPlayer: Player(playerID: "77777"))
+        game.createGame { _ in }
         
         drawingView.delegate = self
         toolsView.drawingView = drawingView
         toolsView.colorDelegate = self
         drawingView.backgroundColor = Color.DisplayViewColor
-    }
-    
-    // TODO: This should have a completion handler, clean it up.
-    func joinGame(withID id: String) {
-        gameClient.joinGame(withID: id) { [unowned self] (success, message) in
-            print(success)
-            print(message)
-            dispatch_async(dispatch_get_main_queue(), {
-                self.gameClient.createConnectionToRoom()
-            })
-        }
-    }
-    
-    // TODO: This should have a completion handler, clean it up.
-    func createGame() {
-        gameClient.createGame { (success) in
-            print(success)
-        }
-        
     }
     
 }

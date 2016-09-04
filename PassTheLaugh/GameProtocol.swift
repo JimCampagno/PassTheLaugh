@@ -15,15 +15,15 @@ protocol GameProtocol {
     var roomID: String { get set }
     var players: [Player] { get set }
     var readyPlayers: Int { get set }
-    var nextRoundStatus: NextRoundStatus { get set }
     var totalPlayers: Int { get }
     var isNowReadyForNextRound: Bool { get }
     var gameMode: GameMode { get set }
     var currentPlayer: Player { get }
     
-    func createGame()
-    func joinGame()
-    func isReadyForNextRound() -> Bool
+    // TODO: Update these functions after we know exactly what they look like in the Game.swift file
+//    func createGame(handler)
+//    func joinGame()
+//    func isReadyForNextRound() -> Bool
     
 }
 
@@ -32,13 +32,6 @@ extension GameProtocol {
     
     var totalPlayers: Int { return players.count }
     var isNowReadyForNextRound: Bool { return readyPlayers == totalPlayers }
-    
-}
-
-
-enum NextRoundStatus: Int {
-    
-    case NotReady, Ready
     
 }
 
