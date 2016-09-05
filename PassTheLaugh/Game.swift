@@ -77,6 +77,12 @@ extension Game {
     
     func roundChanged(to round: Int) {
         print("Round changed method was called on the Game class to \(round)")
+        switch round % 2 == 0 {
+        case true:
+            print("Round is even")
+        case false:
+            print("Round is odd.")
+        }
         
     }
     
