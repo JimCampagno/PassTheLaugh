@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol GameProtocol {
+protocol GameProtocol: class {
     
     var round: Int { get set }
     var roomID: String { get set }
@@ -19,6 +19,9 @@ protocol GameProtocol {
     var isNowReadyForNextRound: Bool { get }
     var gameMode: GameMode { get set }
     var currentPlayer: Player { get }
+    var firebaseValue: AnyObject? { get }
+    
+    func roundChanged(to round: Int)
     
     // TODO: Update these functions after we know exactly what they look like in the Game.swift file
 //    func createGame(handler)

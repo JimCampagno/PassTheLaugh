@@ -17,7 +17,7 @@ final class GameAPIclient {
     var roomID: String = String()
     private var randomRoomID: String { roomID = randomRoom(); return roomID }
     private let lengthOfRoomNumber: Int = 6
-    weak var game: Game! = nil
+    weak var game: GameProtocol!
     var gameStarted = false
     
 }
@@ -94,8 +94,6 @@ extension GameAPIclient {
         roomRef.child(roomID).child("round").setValue(1) { (error: NSError?, ref: FIRDatabaseReference) in
             dispatch_async(dispatch_get_main_queue(), {
                 // TODO: Handle Error case here.
-                print("We should have set the ready to 1 here")
-                print("Ref is \(ref)")
                 handler(success: true)
             })
         }
@@ -110,18 +108,12 @@ extension GameAPIclient {
     
     // TODO: I feel like the Game class should have an instance property of type GameAPLIclient where this function gets called similar to how I'm doing it in the DrawViewController.swift file: After the sucess comes back on the joinGame method. Need to do the same for createGame method.
     func createConnectionToRoom(handler: (success: Bool) -> Void) {
-        roomRef.child(roomID).observeEventType(.Value, withBlock: { [unowned self] snapshot in
+        print("Calling on createConnection")
+        roomRef.child(roomID).child("round").observeEventType(.Value, withBlock: { [unowned self] snapshot in
             dispatch_async(dispatch_get_main_queue(), {
-                if !self.gameStarted {
-                    self.gameStarted = true
-                    handler(success: true)
-                }
-                
-                
-                
-                print("Getting back LIVE INFO")
-                print(snapshot.value)
-                
+                if !self.gameStarted { self.gameStarted = true; handler(success: true) }
+                guard let roundValue = snapshot.value as? Int where roundValue != 0 else { return }
+                self.game.roundChanged(to: roundValue)
             })
             }, withCancelBlock: { error in
                 dispatch_async(dispatch_get_main_queue(), {

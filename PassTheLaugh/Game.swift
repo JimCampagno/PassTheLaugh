@@ -31,7 +31,6 @@ final class Game: GameProtocol {
 
 
 // MARK: Creating a Game
-
 extension Game {
     
     func createGame(handler: (success: Bool) -> Void) {
@@ -46,7 +45,6 @@ extension Game {
 
 
 // MARK: Joining a Game
-
 extension Game {
     
     func joinGame(withRoomID id: String, handler: (success: Bool, message: GameMessage) -> Void) {
@@ -61,7 +59,6 @@ extension Game {
 
 
 // MARK: Starting a Game
-
 extension Game {
     
     func startGame(handler: (success: Bool) -> Void) {
@@ -75,8 +72,18 @@ extension Game {
 }
 
 
-// MARK: Firebase
+// MARK: Rounds
+extension Game {
+    
+    func roundChanged(to round: Int) {
+        print("Round changed method was called on the Game class to \(round)")
+        
+    }
+    
+}
 
+
+// MARK: Firebase
 extension Game {
     
     func createFirebaseValue() -> AnyObject? {
@@ -97,4 +104,9 @@ extension Game {
         return result
     }
     
+}
+
+
+enum RoundType {
+    case Draw, Word
 }

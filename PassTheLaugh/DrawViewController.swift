@@ -19,7 +19,9 @@ final class DrawViewController: UIViewController {
         super.viewDidLoad()
         
         game = Game(currentPlayer: Player(playerID: "77777"))
-        game.createGame { _ in }
+        game.createGame { _ in
+            self.game.startGame { _ in }
+        }
         
         drawingView.delegate = self
         toolsView.drawingView = drawingView
@@ -65,6 +67,7 @@ extension DrawViewController: ColorChangeRequestDelegate {
         // TODO: This just present a view showcasing the name of the image to be drawn. Maybe a timer. Another button in this view to be able to submit the drawing. For now, I'm just having it take a screenshot and sending that up to Firebase.
         
         let drawingImage = drawingView.image
+        // TODO: If you to try to upload this when someone hasn't drawn anything--it crashes at runtime. Fix that.
         FirebaseAPIclient.uploadImage(drawingImage) { _ in
             print("HI everyone.")
         }
