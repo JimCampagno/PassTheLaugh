@@ -13,6 +13,7 @@ enum GameMessage {
     
     case NoGame(message: String)
     case GameIsFull(message: String)
+    case EmptyGuess(message: String)
     case Nothing
     
 }

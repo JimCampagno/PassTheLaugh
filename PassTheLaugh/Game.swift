@@ -71,6 +71,22 @@ extension Game {
     
 }
 
+// MARK: Submitting A Word
+extension Game {
+    
+    func submit(firstGuess guess: String, handler: (success: Bool, message: GameMessage) -> Void) {
+        guard !guess.isEmpty else { handler(success: false, message: GameMessage.EmptyGuess(message: "Please make a guess.")); return }
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+}
+
 
 // MARK: Rounds
 extension Game {
@@ -79,8 +95,10 @@ extension Game {
         print("Round changed method was called on the Game class to \(round)")
         switch round % 2 == 0 {
         case true:
-            print("Round is even")
+            // Even rounds require that the person draw.
+            print("Round is even.")
         case false:
+            // Odd rounds require that the person create a word or phrase. The first round (round 1), requires that person create a word or phrase
             print("Round is odd.")
         }
         

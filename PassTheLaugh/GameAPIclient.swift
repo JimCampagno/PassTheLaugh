@@ -42,12 +42,12 @@ extension GameAPIclient {
         self.roomRef.child(self.roomID).setValue(game.firebaseValue, withCompletionBlock: { [unowned self] (error: NSError?, ref: FIRDatabaseReference) in
             dispatch_async(dispatch_get_main_queue(),{
                 self.createConnectionToRoom { success in
-                        dispatch_async(dispatch_get_main_queue(), {
-                            handler(success: true)
-                        })
+                    dispatch_async(dispatch_get_main_queue(), {
+                        handler(success: true)
+                    })
                 }
-           })
-        })
+            })
+            })
     }
     
 }
@@ -75,9 +75,9 @@ extension GameAPIclient {
             // TODO: Handle Error here.
             dispatch_async(dispatch_get_main_queue(),{
                 self.createConnectionToRoom { success in
-                        dispatch_async(dispatch_get_main_queue(), {
-                            handler(success: success)
-                        })
+                    dispatch_async(dispatch_get_main_queue(), {
+                        handler(success: success)
+                    })
                 }
             })
         }
@@ -120,6 +120,35 @@ extension GameAPIclient {
                     print(error.description)
                 })
         })
+    }
+    
+    func submit(guess guess: String, handler: (success: Bool, message: GameMessage) -> Void) {
+        // TODO: What if this is the first guess they are making. It should be worded differently. Not Please make a guess.
+        guard !guess.isEmpty else { handler(success: false, message: GameMessage.EmptyGuess(message: "Please make a guess.")); return }
+        
+        // round1 : [player1 : [word : Mountains]],
+        //          [player2 : [word : Truck]],
+        //          [player3 : [word: Computer]]
+        
+        // round2 : [player1 : [wordToDraw : Computer, drawingURL: ""]],
+        //          [player2 : [wordToDraw : Mountains, drawingURL : ""]],
+        //          [player3 : [wordToDraw: Truck, drawingURL : ""]]
+        
+        // round3 : [player1 : [drawingToGuess : www.drawingblahblahabc2.com, guess: "Madonna"]],
+        //          [player2 : [drawingToGuess : www.drawingblahblah2.com, guess: "Frodo"]],
+        //          [player3 : [drawingToGuess : www.drawingblahblah323.com, guess: "Racecar Driver"]]
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
     }
     
 }
