@@ -25,12 +25,17 @@ final class ChangeColorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-        setupTableView()
+     
     }
     
     fileprivate func setupView() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupView()
+        setupTableView()
     }
     
 }
@@ -96,6 +101,7 @@ extension ChangeColorViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let colorCell = cell as! ColorChangeCell
+        print("CALLED!")
         colorCell.colorPalette = colorPalettes[indexPath.row]
     }
     

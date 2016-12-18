@@ -16,6 +16,7 @@ final class ColorChangeView: UIView {
     @IBOutlet weak var color3Button: UIButton!
     @IBOutlet weak var color4Button: UIButton!
     @IBOutlet weak var color5Button: UIButton!
+    @IBOutlet weak var stackView: UIStackView!
     var colorDelegate: ColorChangeViewDelegate!
     
     var colorPalette: ColorPalette! {
@@ -56,8 +57,6 @@ extension ColorChangeView {
         contentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         contentView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        
-        setupTheButtons()
     }
     
 }
@@ -65,15 +64,17 @@ extension ColorChangeView {
 // MARK: Setup Buttons
 extension ColorChangeView {
     
-    fileprivate func setupTheButtons() {
-        roundTheEdgesOfAllTheButtons()
-    }
-    
     fileprivate func roundTheEdgesOfAllTheButtons() {
         let allTheButtons = [color1Button, color2Button, color3Button, color4Button, color5Button]
         
         for button in allTheButtons {
+            stackView.setNeedsLayout()
             let height = button?.frame.size.height
+            
+            print("\n")
+            print("HEIGHT: \(height)")
+            
+            
             button?.clipsToBounds = true
             button?.layer.cornerRadius = height! / 2
         }
@@ -85,6 +86,7 @@ extension ColorChangeView {
 extension ColorChangeView {
     
     fileprivate func setupColorPalette() {
+        roundTheEdgesOfAllTheButtons()
         color1Button.backgroundColor = colorPalette.first
         color2Button.backgroundColor = colorPalette.second
         color3Button.backgroundColor = colorPalette.third
