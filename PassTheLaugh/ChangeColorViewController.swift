@@ -29,8 +29,8 @@ final class ChangeColorViewController: UIViewController {
         setupTableView()
     }
     
-    private func setupView() {
-        view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
+    fileprivate func setupView() {
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
     }
     
 }
@@ -40,7 +40,7 @@ extension ChangeColorViewController: ColorChangeViewDelegate {
     
     func colorChanged(to color: UIColor) {
         updateColorDelegate.updateColor(to: color)
-        dismissViewControllerAnimated(true) { [unowned self] _ in
+        dismiss(animated: true) { [unowned self] _ in
             self.updateColorDelegate = nil
         }
     }
@@ -50,24 +50,24 @@ extension ChangeColorViewController: ColorChangeViewDelegate {
 // MARK: - Setup TableView
 extension ChangeColorViewController {
     
-    private func setupTableView() {
-        tableView = UITableView(frame: CGRectZero, style: .Plain)
-        tableView.backgroundColor = UIColor.clearColor()
+    fileprivate func setupTableView() {
+        tableView = UITableView(frame: CGRect.zero, style: .plain)
+        tableView.backgroundColor = UIColor.clear
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
-        let centerX = tableView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor)
+        let centerX = tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         centerX.constant -= widthOfSideBar / 2
-        centerX.active = true
-        tableView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
-        tableView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.7).active = true
-        tableView.topAnchor.constraintEqualToAnchor(view.topAnchor).active = true
-        tableView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
+        centerX.isActive = true
+        tableView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        tableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.registerClass(ColorChangeCell.self, forCellReuseIdentifier: ColorChangeCell.identifier)
-        tableView.separatorStyle = .None
+        tableView.register(ColorChangeCell.self, forCellReuseIdentifier: ColorChangeCell.identifier)
+        tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.showsVerticalScrollIndicator = false
     }
@@ -77,14 +77,14 @@ extension ChangeColorViewController {
 // MARK: - TableView Datasource Methods
 extension ChangeColorViewController: UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return colorPalettes.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(ColorChangeCell.identifier, forIndexPath: indexPath) as! ColorChangeCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ColorChangeCell.identifier, for: indexPath) as! ColorChangeCell
         cell.colorChangeView.colorDelegate = self
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.clear
         return cell
     }
 
@@ -94,12 +94,12 @@ extension ChangeColorViewController: UITableViewDataSource {
 // MARK: - TableView Delegate Methods
 extension ChangeColorViewController: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let colorCell = cell as! ColorChangeCell
         colorCell.colorPalette = colorPalettes[indexPath.row]
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return rowHeight
     }
     

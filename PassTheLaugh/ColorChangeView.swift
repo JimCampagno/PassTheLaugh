@@ -37,7 +37,7 @@ final class ColorChangeView: UIView {
 // MARK: - Action Methods
 extension ColorChangeView {
     
-    @IBAction func colorChangeWithButton(sender: UIButton) {
+    @IBAction func colorChangeWithButton(_ sender: UIButton) {
         colorDelegate.colorChanged(to: sender.backgroundColor!)
     }
     
@@ -46,16 +46,16 @@ extension ColorChangeView {
 // MARK: - Setup Functions
 extension ColorChangeView {
     
-    private func commonInit() {
-        NSBundle.mainBundle().loadNibNamed("ColorChangeTableViewCell", owner: self, options: nil)
+    fileprivate func commonInit() {
+        Bundle.main.loadNibNamed("ColorChangeTableViewCell", owner: self, options: nil)
         addSubview(contentView)
-        contentView.backgroundColor = UIColor.clearColor()
-        self.backgroundColor = UIColor.clearColor()
+        contentView.backgroundColor = UIColor.clear
+        self.backgroundColor = UIColor.clear
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.leftAnchor.constraintEqualToAnchor(leftAnchor).active = true
-        contentView.rightAnchor.constraintEqualToAnchor(rightAnchor).active = true
-        contentView.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
-        contentView.topAnchor.constraintEqualToAnchor(topAnchor).active = true
+        contentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        contentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        contentView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         
         setupTheButtons()
     }
@@ -65,17 +65,17 @@ extension ColorChangeView {
 // MARK: Setup Buttons
 extension ColorChangeView {
     
-    private func setupTheButtons() {
+    fileprivate func setupTheButtons() {
         roundTheEdgesOfAllTheButtons()
     }
     
-    private func roundTheEdgesOfAllTheButtons() {
+    fileprivate func roundTheEdgesOfAllTheButtons() {
         let allTheButtons = [color1Button, color2Button, color3Button, color4Button, color5Button]
         
         for button in allTheButtons {
-            let height = button.frame.size.height
-            button.clipsToBounds = true
-            button.layer.cornerRadius = height / 2
+            let height = button?.frame.size.height
+            button?.clipsToBounds = true
+            button?.layer.cornerRadius = height! / 2
         }
     }
     
@@ -84,7 +84,7 @@ extension ColorChangeView {
 // MARK: - Color Palette Functions
 extension ColorChangeView {
     
-    private func setupColorPalette() {
+    fileprivate func setupColorPalette() {
         color1Button.backgroundColor = colorPalette.first
         color2Button.backgroundColor = colorPalette.second
         color3Button.backgroundColor = colorPalette.third

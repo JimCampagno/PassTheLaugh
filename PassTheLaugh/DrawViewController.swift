@@ -34,7 +34,7 @@ final class DrawViewController: UIViewController {
 // MARK: - DrawingView Delegate
 extension DrawViewController: ACEDrawingViewDelegate {
     
-    func drawingView(view: ACEDrawingView!, didEndDrawUsingTool tool: ACEDrawingTool!) {
+    func drawingView(_ view: ACEDrawingView!, didEndDrawUsing tool: ACEDrawingTool!) {
         toolsView.updateButtonStatus()
     }
     
@@ -44,23 +44,23 @@ extension DrawViewController: ACEDrawingViewDelegate {
 extension DrawViewController: ColorChangeRequestDelegate {
     
     func requestToChangeColor() {
-        let changeColorVC = main.instantiateViewControllerWithIdentifier("ChangeColorVC") as! ChangeColorViewController
-        changeColorVC.modalPresentationStyle = .OverFullScreen
-        changeColorVC.modalTransitionStyle = .CrossDissolve
+        let changeColorVC = main.instantiateViewController(withIdentifier: "ChangeColorVC") as! ChangeColorViewController
+        changeColorVC.modalPresentationStyle = .overFullScreen
+        changeColorVC.modalTransitionStyle = .crossDissolve
         changeColorVC.updateColorDelegate = self
         changeColorVC.widthOfSideBar = toolsView.frame.size.width
-        presentViewController(changeColorVC, animated: true, completion: nil)
+        present(changeColorVC, animated: true, completion: nil)
     }
     
     func requestToChangeAlpha() {
-        let alphaVC = main.instantiateViewControllerWithIdentifier("AlphaVC") as! AlphaViewController
-        alphaVC.modalPresentationStyle = .OverFullScreen
-        alphaVC.modalTransitionStyle = .CrossDissolve
+        let alphaVC = main.instantiateViewController(withIdentifier: "AlphaVC") as! AlphaViewController
+        alphaVC.modalPresentationStyle = .overFullScreen
+        alphaVC.modalTransitionStyle = .crossDissolve
         alphaVC.currentColor = drawingView.lineColor
         alphaVC.currentAlphaValue = drawingView.lineAlpha
         alphaVC.widthOfSideBar = toolsView.frame.size.width
         alphaVC.updateAlphaDelegate = self
-        presentViewController(alphaVC, animated: true, completion: nil)
+        present(alphaVC, animated: true, completion: nil)
     }
     
     func requestToLookAtInfo() {
@@ -68,7 +68,7 @@ extension DrawViewController: ColorChangeRequestDelegate {
         
         let drawingImage = drawingView.image
         // TODO: If you to try to upload this when someone hasn't drawn anything--it crashes at runtime. Fix that.
-        FirebaseAPIclient.uploadImage(drawingImage) { _ in
+        FirebaseAPIclient.uploadImage(drawingImage!) { _ in
             print("HI everyone.")
         }
         

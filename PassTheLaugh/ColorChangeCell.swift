@@ -31,16 +31,16 @@ class ColorChangeCell: UITableViewCell {
         commonInit()
     }
     
-    private func commonInit() {
-        contentView.backgroundColor = UIColor.clearColor()
+    fileprivate func commonInit() {
+        contentView.backgroundColor = UIColor.clear
         
-        colorChangeView = ColorChangeView(frame: CGRectZero)
+        colorChangeView = ColorChangeView(frame: CGRect.zero)
         colorChangeView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(colorChangeView)
-        colorChangeView.leftAnchor.constraintEqualToAnchor(contentView.leftAnchor).active = true
-        colorChangeView.rightAnchor.constraintEqualToAnchor(contentView.rightAnchor).active = true
-        colorChangeView.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor).active = true
-        colorChangeView.topAnchor.constraintEqualToAnchor(contentView.topAnchor).active = true
+        colorChangeView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+        colorChangeView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        colorChangeView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        colorChangeView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
     }
     
     override func prepareForReuse() {

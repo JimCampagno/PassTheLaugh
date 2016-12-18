@@ -11,9 +11,9 @@ import Foundation
 
 enum GameMessage {
     
-    case NoGame(message: String)
-    case GameIsFull(message: String)
-    case EmptyGuess(message: String)
-    case Nothing
+    case noGame(message: String)
+    case gameIsFull(message: String)
+    case emptyGuess(message: String)
+    case nothing
     
 }

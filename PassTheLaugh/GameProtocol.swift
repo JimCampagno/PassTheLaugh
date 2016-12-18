@@ -19,7 +19,7 @@ protocol GameProtocol: class {
     var isNowReadyForNextRound: Bool { get }
     var gameMode: GameMode { get set }
     var currentPlayer: Player { get }
-    var firebaseValue: AnyObject? { get }
+    var firebaseValue: [String : Any]? { get }
     
     func roundChanged(to round: Int)
     
@@ -40,6 +40,6 @@ extension GameProtocol {
 
 enum GameMode {
     
-    case Drawing, Word
+    case drawing, word
     
 }

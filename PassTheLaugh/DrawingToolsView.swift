@@ -36,7 +36,7 @@ final class DrawingToolsView: UIView {
 // MARK: - Action Functions
 extension DrawingToolsView {
     
-    @IBAction func buttonTapped(sender: UIButton) {
+    @IBAction func buttonTapped(_ sender: UIButton) {
         switch sender.drawType {
         case .Redo: drawingView.redoLatestStep()
         case .Undo: drawingView.undoLatestStep()
@@ -51,8 +51,8 @@ extension DrawingToolsView {
     }
     
     func updateButtonStatus() {
-        undoButton.enabled = drawingView.canUndo()
-        redoButton.enabled = drawingView.canRedo()
+        undoButton.isEnabled = drawingView.canUndo()
+        redoButton.isEnabled = drawingView.canRedo()
     }
     
 }
@@ -60,14 +60,14 @@ extension DrawingToolsView {
 // MARK: - Setup Functions
 extension DrawingToolsView {
     
-    private func commonInit() {
-        NSBundle.mainBundle().loadNibNamed("DrawingToolsView", owner: self, options: nil)
+    fileprivate func commonInit() {
+        Bundle.main.loadNibNamed("DrawingToolsView", owner: self, options: nil)
         addSubview(contentView)
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.leftAnchor.constraintEqualToAnchor(leftAnchor).active = true
-        contentView.rightAnchor.constraintEqualToAnchor(rightAnchor).active = true
-        contentView.topAnchor.constraintEqualToAnchor(topAnchor).active = true
-        contentView.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
+        contentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        contentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        contentView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         // TODO: Remove anything below this done when ready to deploy app
         test()
@@ -80,22 +80,22 @@ extension DrawingToolsView {
 // MARK: - Development Stage Functions
 extension DrawingToolsView {
     
-    private func test() {
+    fileprivate func test() {
         changeBackgroundColorOfContentView()
         changeBackgroundcolorOfAllButtons()
     }
     
-    private func changeBackgroundColorOfContentView() {
+    fileprivate func changeBackgroundColorOfContentView() {
         contentView.backgroundColor = Color.ToolViewColor
     }
     
-    private func changeBackgroundcolorOfAllButtons() {
+    fileprivate func changeBackgroundcolorOfAllButtons() {
         for view in stackView.subviews {
             switch view {
             case is UIButton:
                 let v: UIButton = view as! UIButton
                 v.backgroundColor = Color.ToolButtonColor
-                v.setTitleColor(Color.ToolButtonTextColor, forState: .Normal)
+                v.setTitleColor(Color.ToolButtonTextColor, for: UIControlState())
             default: continue
             }
         }

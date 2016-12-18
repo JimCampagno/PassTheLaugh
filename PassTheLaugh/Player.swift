@@ -13,7 +13,7 @@ final class Player {
     
     let playerID: String
     var word: String?
-    var status: Status = .NotReady
+    var status: Status = .notReady
     var guess: String?
     var drawingURL: String?
     var firebaseValue: NSDictionary { return createFirebaseValue() }
@@ -41,5 +41,5 @@ extension Player {
 
 
 enum Status: Int {
-    case NotReady, Ready
+    case notReady, ready
 }

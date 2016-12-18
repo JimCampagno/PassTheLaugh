@@ -21,26 +21,26 @@ final class ViewController: UIViewController {
 // MARK: - Test Out Image Download Methods
 extension ViewController {
     
-    private func test() {
+    fileprivate func test() {
         setupImageView()
         displayTestImage()
     }
     
-    private func setupImageView() {
-        imageView = UIImageView(frame: CGRectZero)
+    fileprivate func setupImageView() {
+        imageView = UIImageView(frame: CGRect.zero)
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.leftAnchor.constraintEqualToAnchor(view.leftAnchor).active = true
-        imageView.rightAnchor.constraintEqualToAnchor(view.rightAnchor).active = true
-        imageView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
-        imageView.topAnchor.constraintEqualToAnchor(view.topAnchor).active = true
-        imageView.contentMode = .ScaleAspectFit
+        imageView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        imageView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        imageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        imageView.contentMode = .scaleAspectFit
     }
     
-    private func displayTestImage() {
+    fileprivate func displayTestImage() {
         FirebaseAPIclient.downloadImageAtURL(Constants.testimage) { [unowned self] image in
             guard let image = image else { return }
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.imageView.image = image
             }
         }

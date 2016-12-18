@@ -24,14 +24,14 @@ final class FirebaseAPIclient {
 // MARK: - Downloading Image Methods
 extension FirebaseAPIclient {
     
-    static func downloadImageAtURL(url: String, completion: (UIImage?) -> ()) {
+    static func downloadImageAtURL(_ url: String, completion: @escaping (UIImage?) -> ()) {
         guard let imageURL = NSURL(string: url) else { print("Bad URL"); completion(nil); return; }
-        let session = NSURLSession.sharedSession()
+        let session = URLSession.shared
         
-        let downloadTask = session.downloadTaskWithURL(imageURL) { url, response, error in
-            guard let imageDataURL = url, data = NSData(contentsOfURL: imageDataURL) else { print("Bad URL and/or Bad Data"); completion(nil); return }
-            dispatch_async(dispatch_get_main_queue()) {
-                let downloadedImage = UIImage(data: data)
+        let downloadTask = session.downloadTask(with: imageURL as URL) { url, response, error in
+            guard let imageDataURL = url, let data = NSData(contentsOf: imageDataURL) else { print("Bad URL and/or Bad Data"); completion(nil); return }
+            DispatchQueue.main.async {
+                let downloadedImage = UIImage(data: data as Data)
                 completion(downloadedImage)
             }
         }
@@ -44,13 +44,13 @@ extension FirebaseAPIclient {
 // MARK: - Uploading Image Methods
 extension FirebaseAPIclient {
     
-    static func uploadImage(image: UIImage, completion: (Bool) -> ()) {
+    static func uploadImage(_ image: UIImage, completion: @escaping (Bool) -> ()) {
         guard let data = UIImagePNGRepresentation(image) else { completion(false); return }
         
         // Create a reference to the file you want to upload
         let riversRef = FirebaseAPIclient.sharedClient.storageRef.child("images/test.png")
         
-        _ = riversRef.putData(data, metadata: nil) { metadata, error in
+        _ = riversRef.put(data, metadata: nil) { metadata, error in
             if (error != nil) {
                 print("error occurred, it is \(error)")
                 print("An error occurred")

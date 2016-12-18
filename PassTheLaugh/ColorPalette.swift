@@ -26,11 +26,11 @@ extension ColorPalette {
     // TODO: This either belongs in Firebase (so we can add colors without updating the app) or it belongs in local file.
     // source: http://www.colourlovers.com/palettes/most-favorites/all-time/meta
     static func dummyData() -> [ColorPalette] {
-        let red = UIColor.redColor()
-        let orange = UIColor.orangeColor()
-        let yellow = UIColor.yellowColor()
-        let green = UIColor.greenColor()
-        let blue = UIColor.blueColor()
+        let red = UIColor.red
+        let orange = UIColor.orange
+        let yellow = UIColor.yellow
+        let green = UIColor.green
+        let blue = UIColor.blue
         let rainbow = ColorPalette(name: "Rainbow", colors: [red, orange, yellow, green, blue])
         
         let eminence = UIColor(red:0.40, green:0.27, blue:0.45, alpha:1.00)
@@ -49,7 +49,7 @@ extension ColorPalette {
         
         let rhino = UIColor(red:0.16, green:0.21, blue:0.38, alpha:1.00)
         let jungleGreen = UIColor(red:0.16, green:0.65, blue:0.50, alpha:1.00)
-        let black = UIColor.blackColor()
+        let black = UIColor.black
         let white = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.00)
         let sweetPink = UIColor(red:1.00, green:0.62, blue:0.62, alpha:1.00)
         let crayonDoodles = ColorPalette(name: "Crayon Doodles", colors: [rhino, jungleGreen, sweetPink, white, black])
