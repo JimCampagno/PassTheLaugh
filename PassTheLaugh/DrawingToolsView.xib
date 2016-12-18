@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DrawingToolsView" customModule="PassTheLaugh" customModuleProvider="target">
@@ -21,10 +22,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cbB-JW-bF1">
-                    <rect key="frame" x="8" y="8" width="129" height="457"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIH-Lb-2H8" userLabel="redo">
-                            <rect key="frame" x="30" y="0.0" width="69" height="70"/>
                             <accessibility key="accessibilityConfiguration" identifier="Redo"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="CIH-Lb-2H8" secondAttribute="height" multiplier="1:1" id="hTn-hF-3lJ"/>
@@ -35,7 +34,6 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FS8-MU-6kf">
-                            <rect key="frame" x="30" y="78" width="69" height="69"/>
                             <accessibility key="accessibilityConfiguration" identifier="Undo"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="FS8-MU-6kf" secondAttribute="height" multiplier="1:1" id="RDy-vW-7ZQ"/>
@@ -46,7 +44,6 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Nf-Yx-pOZ">
-                            <rect key="frame" x="30" y="155" width="69" height="70"/>
                             <accessibility key="accessibilityConfiguration" identifier="Alpha"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="5Nf-Yx-pOZ" secondAttribute="height" multiplier="1:1" id="jn2-Pi-rs0"/>
@@ -57,7 +54,6 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eov-1i-Gha">
-                            <rect key="frame" x="30" y="233" width="69" height="69"/>
                             <accessibility key="accessibilityConfiguration" identifier="Thick"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="eov-1i-Gha" secondAttribute="height" multiplier="1:1" id="mD7-Qx-Ysl"/>
@@ -68,7 +64,6 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCV-hh-pVN">
-                            <rect key="frame" x="30" y="310" width="69" height="70"/>
                             <accessibility key="accessibilityConfiguration" identifier="Color"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="xCV-hh-pVN" secondAttribute="height" multiplier="1:1" id="yw1-XZ-vrs"/>
@@ -79,7 +74,6 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zs-a7-OAA">
-                            <rect key="frame" x="30" y="388" width="69" height="69"/>
                             <accessibility key="accessibilityConfiguration" identifier="Info"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="0Zs-a7-OAA" secondAttribute="height" multiplier="1:1" id="1rC-Vh-3Kx"/>
@@ -92,7 +86,7 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="cbB-JW-bF1" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="3Z6-Mp-0yY"/>
                 <constraint firstItem="cbB-JW-bF1" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="4X0-gy-ZPA"/>
